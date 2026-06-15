@@ -1,0 +1,18 @@
+# Cloudflare Pages config for the NH Map Generator (with shared state + versions).
+# The static site is in public/ and the API is in functions/ (Pages Functions).
+name = "nh-map"
+compatibility_date = "2024-09-01"
+pages_build_output_dir = "public"
+
+# Shared storage. Create a KV namespace and paste its id below:
+#   npx wrangler kv namespace create MAP
+[[kv_namespaces]]
+binding = "MAP"
+id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+
+# Initial passwords are read ONCE from these on first run, then stored in KV
+# (the admin can change them in-app afterwards). These are plain vars so the map
+# works out of the box; swap to encrypted secrets if you prefer (see DEPLOY.md).
+[vars]
+INIT_ADMIN_PASSWORD  = "bastionhasabigfatpeen"
+INIT_EDITOR_PASSWORD = "editpass"

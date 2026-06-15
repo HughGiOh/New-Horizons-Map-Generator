@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+# local Cloudflare dev state
+.dev.vars
+# large/platform-specific binary used only for `npm run share`
+cloudflared.exe
+# generated artifact
+nh-map-site.zip
+# the source PSD is large and lives outside the repo
+*.psd

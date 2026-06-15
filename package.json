@@ -1,0 +1,22 @@
+{
+  "name": "nh-map-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.mjs",
+  "scripts": {
+    "bake": "node --max-old-space-size=12288 bake.mjs",
+    "start": "node server.mjs",
+    "share": "node share.mjs",
+    "dev:cf": "wrangler pages dev public --kv MAP --binding INIT_ADMIN_PASSWORD=bastionhasabigfatpeen --binding INIT_EDITOR_PASSWORD=editpass --port 8788",
+    "deploy": "wrangler pages deploy public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.0",
+    "ag-psd": "^30.1.1",
+    "pngjs": "^7.0.0"
+  }
+}

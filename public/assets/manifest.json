@@ -1,0 +1,983 @@
+{
+  "width": 6000,
+  "height": 6000,
+  "base": "base.jpg",
+  "overlayLines": "overlay-lines.png",
+  "font": {
+    "family": "Cinzel",
+    "weight": 700,
+    "file": "fonts/Cinzel-Bold.ttf"
+  },
+  "labels": [
+    {
+      "id": "L0",
+      "text": "Cendric’s Road",
+      "x": 1480.5,
+      "y": 2822.7,
+      "size": 33,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L1",
+      "text": "Lake Ackerley",
+      "x": 2604.5,
+      "y": 3342.7,
+      "size": 33,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L2",
+      "text": "MacDonald’s Mouth",
+      "x": 3067,
+      "y": 3604.8,
+      "size": 33,
+      "rot": 0,
+      "track": 0.05,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L3",
+      "text": "Celka’s Tear",
+      "x": 1114,
+      "y": 2722.8,
+      "size": 33,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L4",
+      "text": "The    River    Fenna",
+      "x": 3951,
+      "y": 3993.7,
+      "size": 40.3,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L5",
+      "text": "The      Devil’s      Fork",
+      "x": 4294,
+      "y": 4509.4,
+      "size": 22,
+      "rot": 0,
+      "track": 0,
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "L6",
+      "text": "The    River    Fenna",
+      "x": 3222,
+      "y": 4373.7,
+      "size": 40.3,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L7",
+      "text": "Mont Fonblanque",
+      "x": 2714,
+      "y": 2341.6,
+      "size": 33,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L8",
+      "text": "Brigands Path",
+      "x": 852,
+      "y": 2293.6,
+      "size": 33,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L9",
+      "text": "iteru-ma’at",
+      "x": 1969,
+      "y": 4245.9,
+      "size": 33,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L10",
+      "text": "Ulwen’s",
+      "x": 1040,
+      "y": 2272.6,
+      "size": 33,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L11",
+      "text": "Grove",
+      "x": 1059,
+      "y": 2300.6,
+      "size": 33,
+      "rot": 0,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L12",
+      "text": "Wisdom’s",
+      "x": 1104.6,
+      "y": 3306.3,
+      "size": 33,
+      "rot": 57.53,
+      "track": 0,
+      "color": "#ebebeb"
+    },
+    {
+      "id": "L13",
+      "text": "Rest",
+      "x": 1083.2,
+      "y": 3335.3,
+      "size": 33,
+      "rot": 57.53,
+      "track": 0,
+      "color": "#ebebeb"
+    }
+  ],
+  "territories": [
+    {
+      "id": 1,
+      "label": "Territory 1",
+      "opacity": 0.502,
+      "defaultHex": "#c3731d",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T1.png",
+          "x": 5186,
+          "y": 4417,
+          "w": 416,
+          "h": 366
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "label": "Territory 2",
+      "opacity": 0.502,
+      "defaultHex": "#c3731d",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T2.png",
+          "x": 4326,
+          "y": 4027,
+          "w": 1047,
+          "h": 661
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "label": "Territory 3",
+      "opacity": 0.502,
+      "defaultHex": "#1916bd",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T3.png",
+          "x": 4034,
+          "y": 4476,
+          "w": 1177,
+          "h": 608
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "label": "Territory 4",
+      "opacity": 0.502,
+      "defaultHex": "#306189",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T4.png",
+          "x": 4037,
+          "y": 4038,
+          "w": 726,
+          "h": 450
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "label": "Territory 5",
+      "opacity": 0.502,
+      "defaultHex": "#109b68",
+      "hiddenByDefault": true,
+      "parts": [
+        {
+          "file": "masks/T5.png",
+          "x": 5144,
+          "y": 3385,
+          "w": 514,
+          "h": 563
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "label": "Territory 6",
+      "opacity": 0.502,
+      "defaultHex": "#2b0818",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T6.png",
+          "x": 4509,
+          "y": 3437,
+          "w": 697,
+          "h": 570
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "label": "Territory 7",
+      "opacity": 0.502,
+      "defaultHex": "#2b0818",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T7.png",
+          "x": 4197,
+          "y": 3379,
+          "w": 404,
+          "h": 607
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "label": "Territory 8",
+      "opacity": 0.502,
+      "defaultHex": "#d56400",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T8.png",
+          "x": 3644,
+          "y": 3227,
+          "w": 689,
+          "h": 804
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "label": "Territory 9",
+      "opacity": 0.502,
+      "defaultHex": "#d56400",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T9.png",
+          "x": 3471,
+          "y": 3597,
+          "w": 509,
+          "h": 609
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "label": "Territory 10",
+      "opacity": 0.502,
+      "defaultHex": "#002c7c",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T10.png",
+          "x": 2813,
+          "y": 3685,
+          "w": 730,
+          "h": 348
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "label": "Territory 11",
+      "opacity": 0.502,
+      "defaultHex": "#d56400",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T11.png",
+          "x": 2932,
+          "y": 3949,
+          "w": 698,
+          "h": 762
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "label": "Territory 12",
+      "opacity": 0.502,
+      "defaultHex": "#d56400",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T12.png",
+          "x": 3537,
+          "y": 4136,
+          "w": 626,
+          "h": 424
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "label": "Territory 13",
+      "opacity": 0.502,
+      "defaultHex": "#1916bd",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T13.png",
+          "x": 3716,
+          "y": 4488,
+          "w": 657,
+          "h": 625
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "label": "Territory 14",
+      "opacity": 0.502,
+      "defaultHex": "#1916bd",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T14.png",
+          "x": 3197,
+          "y": 4398,
+          "w": 639,
+          "h": 908
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "label": "Territory 15",
+      "opacity": 0.502,
+      "defaultHex": "#1916bd",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T15.png",
+          "x": 2620,
+          "y": 4991,
+          "w": 719,
+          "h": 400
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "label": "Territory 16",
+      "opacity": 0.502,
+      "defaultHex": "#1916bd",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T16.png",
+          "x": 1734,
+          "y": 4975,
+          "w": 896,
+          "h": 416
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "label": "Territory 17",
+      "opacity": 0.502,
+      "defaultHex": "#d56400",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T17.png",
+          "x": 2282,
+          "y": 4436,
+          "w": 889,
+          "h": 629
+        },
+        {
+          "file": "masks/T17A.png",
+          "x": 2637,
+          "y": 4958,
+          "w": 266,
+          "h": 118
+        },
+        {
+          "file": "masks/T17B.png",
+          "x": 2549,
+          "y": 5016,
+          "w": 54,
+          "h": 54
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "label": "Territory 18",
+      "opacity": 0.502,
+      "defaultHex": "#0dc9c2",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T18.png",
+          "x": 2310,
+          "y": 3996,
+          "w": 957,
+          "h": 720
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "label": "Territory 19",
+      "opacity": 0.502,
+      "defaultHex": "#0dc9c2",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T19.png",
+          "x": 1725,
+          "y": 4284,
+          "w": 706,
+          "h": 717
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "label": "Territory 20",
+      "opacity": 0.502,
+      "defaultHex": "#0dc9c2",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T20.png",
+          "x": 1337,
+          "y": 4577,
+          "w": 875,
+          "h": 536
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "label": "Territory 21",
+      "opacity": 0.502,
+      "defaultHex": "#0dc9c2",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T21.png",
+          "x": 1042,
+          "y": 3841,
+          "w": 937,
+          "h": 883
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "label": "Territory 22",
+      "opacity": 0.502,
+      "defaultHex": "#e0980e",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T22.png",
+          "x": 439,
+          "y": 3725,
+          "w": 867,
+          "h": 689
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "label": "Territory 23",
+      "opacity": 0.502,
+      "defaultHex": "#5961d3",
+      "hiddenByDefault": true,
+      "parts": [
+        {
+          "file": "masks/T23.png",
+          "x": 1848,
+          "y": 3879,
+          "w": 585,
+          "h": 464
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "label": "Territory 24",
+      "opacity": 0.502,
+      "defaultHex": "#002c7c",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T24.png",
+          "x": 2113,
+          "y": 3494,
+          "w": 810,
+          "h": 703
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "label": "Territory 25",
+      "opacity": 0.502,
+      "defaultHex": "#002c7c",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T25.png",
+          "x": 1357,
+          "y": 3184,
+          "w": 1004,
+          "h": 771
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "label": "Territory 26",
+      "opacity": 0.502,
+      "defaultHex": "#5961d3",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T26.png",
+          "x": 808,
+          "y": 3078,
+          "w": 676,
+          "h": 802
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "label": "Territory 27",
+      "opacity": 0.502,
+      "defaultHex": "#e0980e",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T27.png",
+          "x": 436,
+          "y": 3335,
+          "w": 406,
+          "h": 512
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "label": "Territory 28",
+      "opacity": 0.502,
+      "defaultHex": "#0d8baf",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T28.png",
+          "x": 349,
+          "y": 2634,
+          "w": 659,
+          "h": 777
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "label": "Territory 29",
+      "opacity": 0.569,
+      "defaultHex": "#570f0f",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T29.png",
+          "x": 2442,
+          "y": 3173,
+          "w": 793,
+          "h": 594
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "label": "Territory 30",
+      "opacity": 0.569,
+      "defaultHex": "#570f0f",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T30.png",
+          "x": 2293,
+          "y": 2866,
+          "w": 677,
+          "h": 650
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "label": "Territory 31",
+      "opacity": 0.569,
+      "defaultHex": "#570f0f",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T31.png",
+          "x": 1578,
+          "y": 2861,
+          "w": 819,
+          "h": 626
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "label": "Territory 32",
+      "opacity": 0.502,
+      "defaultHex": "#2b0818",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T32.png",
+          "x": 1642,
+          "y": 2632,
+          "w": 751,
+          "h": 541
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "label": "Territory 33",
+      "opacity": 0.502,
+      "defaultHex": "#2b0818",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T33.png",
+          "x": 1005,
+          "y": 2895,
+          "w": 601,
+          "h": 333
+        },
+        {
+          "file": "masks/T33B.png",
+          "x": 1042,
+          "y": 2938,
+          "w": 563,
+          "h": 287
+        },
+        {
+          "file": "masks/T33A.png",
+          "x": 1026,
+          "y": 2896,
+          "w": 567,
+          "h": 331
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "label": "Territory 34",
+      "opacity": 0.502,
+      "defaultHex": "#2b0818",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T34.png",
+          "x": 1230,
+          "y": 2571,
+          "w": 620,
+          "h": 425
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "label": "Territory 35",
+      "opacity": 0.502,
+      "defaultHex": "#cc6000",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T35.png",
+          "x": 1070,
+          "y": 2397,
+          "w": 495,
+          "h": 530
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "label": "Territory 36",
+      "opacity": 0.502,
+      "defaultHex": "#0f6029",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T36.png",
+          "x": 704,
+          "y": 2295,
+          "w": 704,
+          "h": 787
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "label": "Territory 37",
+      "opacity": 0.502,
+      "defaultHex": "#0d8baf",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T37.png",
+          "x": 392,
+          "y": 2265,
+          "w": 663,
+          "h": 482
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "label": "Territory 38",
+      "opacity": 0.502,
+      "defaultHex": "#0d8baf",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T38.png",
+          "x": 393,
+          "y": 1968,
+          "w": 650,
+          "h": 496
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "label": "Territory 39",
+      "opacity": 0.702,
+      "defaultHex": "#344968",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T39.png",
+          "x": 571,
+          "y": 1560,
+          "w": 633,
+          "h": 531
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "label": "Territory 40",
+      "opacity": 0.702,
+      "defaultHex": "#344968",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T40.png",
+          "x": 926,
+          "y": 1698,
+          "w": 589,
+          "h": 477
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "label": "Territory 41",
+      "opacity": 0.702,
+      "defaultHex": "#344968",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T41.png",
+          "x": 1198,
+          "y": 1422,
+          "w": 893,
+          "h": 587
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "label": "Territory 42",
+      "opacity": 0.702,
+      "defaultHex": "#344968",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T42.png",
+          "x": 995,
+          "y": 1795,
+          "w": 1241,
+          "h": 596
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "label": "Territory 43",
+      "opacity": 0.502,
+      "defaultHex": "#404040",
+      "hiddenByDefault": true,
+      "parts": [
+        {
+          "file": "masks/T43.png",
+          "x": 1587,
+          "y": 1966,
+          "w": 622,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "label": "Territory 44",
+      "opacity": 0.502,
+      "defaultHex": "#2f6c3c",
+      "hiddenByDefault": true,
+      "parts": [
+        {
+          "file": "masks/T44.png",
+          "x": 1236,
+          "y": 2083,
+          "w": 562,
+          "h": 392
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "label": "Territory 45",
+      "opacity": 0.502,
+      "defaultHex": "#6facb5",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T45.png",
+          "x": 1489,
+          "y": 2218,
+          "w": 636,
+          "h": 437
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "label": "Territory 46",
+      "opacity": 0.702,
+      "defaultHex": "#4e6c37",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T46.png",
+          "x": 1899,
+          "y": 1945,
+          "w": 905,
+          "h": 706
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "label": "Territory 47",
+      "opacity": 0.502,
+      "defaultHex": "#aa8400",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T47.png",
+          "x": 2371,
+          "y": 2579,
+          "w": 566,
+          "h": 452
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "label": "Territory 48",
+      "opacity": 0.502,
+      "defaultHex": "#aa8400",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T48.png",
+          "x": 2519,
+          "y": 1780,
+          "w": 530,
+          "h": 1025
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "label": "Territory 49",
+      "opacity": 0.702,
+      "defaultHex": "#344968",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T49A.png",
+          "x": 2023,
+          "y": 1530,
+          "w": 914,
+          "h": 710
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "label": "Territory 50",
+      "opacity": 0.702,
+      "defaultHex": "#344968",
+      "hiddenByDefault": false,
+      "parts": [
+        {
+          "file": "masks/T50.png",
+          "x": 2010,
+          "y": 1208,
+          "w": 830,
+          "h": 541
+        }
+      ]
+    }
+  ]
+}

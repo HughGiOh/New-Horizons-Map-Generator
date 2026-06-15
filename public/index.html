@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Horizons — Map Generator</title>
+<link rel="stylesheet" href="style.css?v=5" />
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>New Horizons <span>Map Generator</span></h1>
+    <p class="credit">made by bastion</p>
+  </div>
+  <div class="actions">
+    <span id="verBadge" class="ver hidden"></span>
+    <button id="btnHistory" class="hidden">History</button>
+    <button id="btnEdit" class="hidden">Edit</button>
+    <button id="btnAdmin" class="hidden" title="Admin settings">⚙</button>
+    <span class="sep hidden" id="sep1"></span>
+    <button id="btnAddText" class="edit-tool" title="Add a new text label">＋ Add text</button>
+    <label class="inc"><input type="checkbox" id="incLines" checked> borders + numbers</label>
+    <label class="inc"><input type="checkbox" id="incNames" checked> place names</label>
+    <button id="btnPng" class="primary" title="Transparent PNG you drop on top of your map">⬇ Download overlay PNG</button>
+    <button id="btnResetAll" class="ghost edit-tool">Reset all</button>
+  </div>
+</header>
+
+<main>
+  <section class="stage">
+    <div class="canvas-wrap">
+      <div id="verBanner" class="vbanner hidden"></div>
+      <div id="viewport">
+        <canvas id="map"></canvas>
+        <canvas id="labelCanvas"></canvas>
+        <input id="labelEdit" class="label-edit hidden" />
+      </div>
+      <div class="zoomctl">
+        <button id="zoomOut" title="Zoom out">−</button>
+        <span id="zoomPct">100%</span>
+        <button id="zoomIn" title="Zoom in">＋</button>
+        <button id="zoomReset" title="Reset view">⤢</button>
+      </div>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <div class="tabs">
+      <button class="tab active" data-tab="terr">Territories</button>
+      <button class="tab" data-tab="text">Text labels</button>
+    </div>
+
+    <div class="tabpane" id="pane-terr">
+      <div class="quick">
+        <h2>Quick recolor</h2>
+        <label>Territory
+          <select id="quickSelect"></select>
+        </label>
+        <label>Colour (hex)
+          <div class="hexrow">
+            <input type="color" id="quickColor" value="#cc5500" />
+            <input type="text" id="quickHex" maxlength="7" value="#cc5500" />
+          </div>
+        </label>
+        <button id="quickApply" class="primary wide">Generate</button>
+      </div>
+
+      <div class="listhead">
+        <h2>All territories</h2>
+        <input type="search" id="filter" placeholder="filter…" />
+      </div>
+      <div id="list" class="list"></div>
+    </div>
+
+    <div class="tabpane hidden" id="pane-text">
+      <div id="labelEditor" class="ledit hidden"></div>
+      <div class="listhead">
+        <h2>Text labels</h2>
+        <button id="btnAddText2" class="edit-tool">＋ Add</button>
+      </div>
+      <div id="labelList" class="list"></div>
+    </div>
+  </aside>
+</main>
+
+<div id="toast" class="toast"></div>
+<div id="modal" class="modal hidden"><div class="sheet" id="sheet"></div></div>
+<script src="app.js?v=5"></script>
+</body>
+</html>

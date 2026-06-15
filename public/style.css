@@ -1,0 +1,192 @@
+:root {
+  --bg: #1c1813;
+  --panel: #26211a;
+  --line: #4a4034;
+  --ink: #efe6d6;
+  --muted: #b3a489;
+  --accent: #c97c2b;
+  --accent2: #e0992f;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.4 "Segoe UI", system-ui, sans-serif;
+  display: flex; flex-direction: column;
+}
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 18px; border-bottom: 1px solid var(--line);
+  background: linear-gradient(#2c261d, #221d16);
+}
+header h1 { font-size: 18px; margin: 0; letter-spacing: .5px; }
+header h1 span { color: var(--accent2); font-weight: 400; }
+.brand { display: flex; flex-direction: row; align-items: baseline; gap: 10px; }
+.credit { margin: 0; font-size: 11px; color: var(--muted); letter-spacing: .5px; font-style: italic; }
+.actions { display: flex; gap: 8px; align-items: center; }
+.inc { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); cursor: pointer; user-select: none; }
+.inc input { accent-color: var(--accent); cursor: pointer; }
+
+button {
+  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+  padding: 8px 14px; border-radius: 7px; cursor: pointer; font-size: 13px;
+  transition: background .12s, border-color .12s;
+}
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); border-color: var(--accent2); color: #1c1209; font-weight: 600; }
+button.primary:hover { background: var(--accent2); }
+button.ghost { background: transparent; color: var(--muted); }
+button.wide { width: 100%; margin-top: 4px; }
+button:disabled { opacity: .5; cursor: progress; }
+
+main { flex: 1; display: flex; min-height: 0; }
+
+.stage {
+  flex: 1; min-width: 0; display: flex; min-height: 0;
+  padding: 0; background:
+    radial-gradient(circle at 50% 40%, #2a241c, #161310);
+}
+.canvas-wrap {
+  position: relative; flex: 1; min-width: 0; overflow: auto; display: flex;
+}
+/* margin:auto centres the viewport when it fits, but (unlike justify-content:center)
+   keeps it fully scrollable to the edges once it's zoomed larger than the window */
+#viewport { position: relative; flex: none; margin: auto; background: #000; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+#map { display: block; width: 100%; height: 100%; }
+
+.vbanner {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 7;
+  display: flex; align-items: center; gap: 10px; max-width: 90%;
+  background: #4a3a1c; border: 1px solid var(--accent2); color: var(--ink);
+  padding: 7px 12px; border-radius: 8px; font-size: 12px; box-shadow: 0 6px 18px #0008;
+}
+.vbanner button { padding: 3px 10px; font-size: 12px; }
+
+.lrow .lsize { width: 46px; padding: 6px 4px; font-size: 12px; background: #1d1913; color: var(--ink); border: 1px solid var(--line); border-radius: 5px; flex-shrink: 0; -moz-appearance: textfield; }
+
+.zoomctl {
+  position: absolute; right: 14px; bottom: 14px; z-index: 6; display: flex; align-items: center; gap: 4px;
+  background: #2c261dEE; border: 1px solid var(--line); border-radius: 8px; padding: 4px 6px; box-shadow: 0 6px 18px #0008;
+}
+.zoomctl button { padding: 2px 9px; font-size: 15px; line-height: 1; }
+.zoomctl #zoomPct { font-size: 12px; color: var(--muted); min-width: 42px; text-align: center; font-variant-numeric: tabular-nums; }
+
+@font-face {
+  font-family: 'Cinzel'; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/Cinzel-Bold.ttf') format('truetype');
+}
+
+/* text labels are rendered on #labelCanvas (1:1 with export); editing is via the Text tab */
+.canvas-wrap { position: relative; }
+#labelCanvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.label-edit {
+  position: absolute; z-index: 6; transform-origin: top left; line-height: 1;
+  font-family: 'Cinzel', serif; font-weight: 700; white-space: pre; padding: 0 2px;
+  background: rgba(20,16,11,.9); color: #fff; border: 1px solid var(--accent2); border-radius: 3px;
+}
+
+/* selected-label editor in the Text tab */
+.ledit { padding: 12px; border-bottom: 1px solid var(--line); background: #221d16; }
+.ledit.hidden { display: none; }
+.ledit .lehead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.ledit .lehead b { font-size: 13px; color: var(--accent2); }
+.ledit label { display: block; font-size: 11px; color: var(--muted); margin: 8px 0 3px; }
+.ledit input[type=text] { width: 100%; padding: 7px; border-radius: 6px; background: #1d1913; color: var(--ink); border: 1px solid var(--line); font-size: 13px; }
+.ledit .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
+.ledit .field input[type=range] { width: 100%; }
+.ledit .field .val { font-size: 11px; color: var(--muted); float: right; }
+.ledit .rowflex { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.ledit input[type=color] { width: 34px; height: 28px; padding: 0; border: 1px solid var(--line); border-radius: 5px; background: none; cursor: pointer; }
+.ledit .movehint { font-size: 11px; color: var(--muted); margin-top: 10px; }
+.ledit .del { color: #e06b5a; border-color: #5a2a25; }
+
+.panel {
+  width: 340px; flex-shrink: 0; border-left: 1px solid var(--line);
+  background: var(--panel); display: flex; flex-direction: column; min-height: 0;
+}
+.panel h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin: 0 0 8px; }
+
+.tabs { display: flex; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+.tabs .tab { flex: 1; background: none; border: none; border-bottom: 2px solid transparent; border-radius: 0; color: var(--muted); padding: 11px 8px; font-size: 13px; }
+.tabs .tab:hover { color: var(--ink); }
+.tabs .tab.active { color: var(--accent2); border-bottom-color: var(--accent); }
+.tabpane { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+.tabpane.hidden { display: none; }
+
+#labelList { padding: 8px 10px 16px; }
+.lrow { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: 7px; cursor: pointer; }
+.lrow:hover { background: #2d271e; }
+.lrow.sel { background: #3a3120; outline: 1px solid var(--accent); }
+.lrow .lname { flex: 1; min-width: 0; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lrow.hidden-lbl .lname { opacity: .45; text-decoration: line-through; }
+.lrow button { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 14px; padding: 3px 5px; flex-shrink: 0; }
+.lrow .lhide:hover { color: var(--accent2); }
+.lrow .ldel:hover { color: #e06b5a; }
+.empty { color: var(--muted); font-size: 12px; padding: 14px 6px; }
+.quick { padding: 16px; border-bottom: 1px solid var(--line); }
+.quick label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.quick select, .quick input[type=text] {
+  width: 100%; margin-top: 4px; padding: 8px; border-radius: 6px;
+  background: #1d1913; color: var(--ink); border: 1px solid var(--line); font-size: 13px;
+}
+.hexrow { display: flex; gap: 8px; margin-top: 4px; align-items: center; }
+.hexrow input[type=color] { width: 42px; height: 38px; padding: 0; border: 1px solid var(--line); border-radius: 6px; background: none; cursor: pointer; }
+.hexrow input[type=text] { flex: 1; margin: 0; }
+
+.listhead { padding: 14px 16px 8px; display: flex; align-items: center; justify-content: space-between; }
+.listhead input { background: #1d1913; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; font-size: 12px; width: 110px; }
+.list { overflow-y: auto; padding: 0 10px 16px; }
+
+.row {
+  display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 7px;
+}
+.row:hover { background: #2d271e; }
+.row .num { width: 26px; text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; flex-shrink: 0; }
+.row .label { flex: 1; min-width: 0; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row.changed .label { color: var(--accent2); }
+/* colour swatch: a styled button chip (the real picker is hidden, so nothing can overflow) */
+.row .sw { width: 20px; height: 20px; padding: 0; border: none; border-radius: 5px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.5), 0 0 0 1px var(--line); cursor: pointer; flex-shrink: 0; }
+.row .hxcolor { position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none; border: 0; padding: 0; }
+/* hex field: always solid dark, never the swatch colour */
+.row .hx { width: 80px; flex-shrink: 0; padding: 5px 7px; font-size: 12px; background: #14100a; color: #e9dcc6; border: 1px solid var(--line); border-radius: 6px; font-family: ui-monospace, monospace; letter-spacing: .3px; }
+.row .hx:focus { outline: none; border-color: var(--accent); }
+.row .clr { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 15px; padding: 2px 4px; flex-shrink: 0; }
+.row .clr:hover { color: #e06b5a; }
+
+.hidden { display: none !important; }
+.ver { font-size: 12px; color: var(--muted); padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; white-space: nowrap; }
+.ver b { color: var(--accent2); font-weight: 600; }
+.sep { width: 1px; align-self: stretch; background: var(--line); margin: 0 2px; }
+
+/* view-only mode: disable editing controls but keep panels scrollable */
+body.viewonly .edit-tool,
+body.viewonly .quick input, body.viewonly .quick select, body.viewonly .quick button,
+body.viewonly #list input, body.viewonly #list button,
+body.viewonly #labelList button,
+body.viewonly #labelEditor { opacity: .5; pointer-events: none; }
+body.viewonly #labelEditor { display: none; }
+
+/* modals */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center; z-index: 50; }
+.sheet { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; width: 380px; max-width: 92vw; max-height: 86vh; overflow: auto; box-shadow: 0 20px 60px #000a; }
+.sheet h3 { margin: 0 0 14px; font-size: 16px; }
+.sheet label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+.sheet input[type=text], .sheet input[type=password] { width: 100%; padding: 9px; border-radius: 7px; background: #1d1913; color: var(--ink); border: 1px solid var(--line); font-size: 14px; }
+.sheet .btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
+.sheet .err { color: #e06b5a; font-size: 12px; min-height: 16px; margin-top: 8px; }
+.vlist { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.vrow { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; }
+.vrow.cur { border-color: var(--accent); }
+.vrow .vmeta { flex: 1; min-width: 0; }
+.vrow .vmeta .vt { font-size: 13px; }
+.vrow .vmeta .vs { font-size: 11px; color: var(--muted); }
+.vrow button { padding: 4px 10px; font-size: 12px; }
+
+.toast {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: #322a20; border: 1px solid var(--accent); color: var(--ink);
+  padding: 10px 18px; border-radius: 8px; opacity: 0; pointer-events: none;
+  transition: opacity .2s, transform .2s; box-shadow: 0 6px 20px #0008;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
