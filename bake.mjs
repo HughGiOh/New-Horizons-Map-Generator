@@ -182,59 +182,65 @@ function rasterizeVectorMask(layer, mw, mh) {
   return bin;
 }
 
-const territories = new Map();
-
-for (const layer of colorsGroup.children) {
-  const info = parseName(layer.name);
-  if (!info) continue;
+// build an inner-glow gradient mask PNG for a shape/vassal layer; returns its placement
+function bakeMask(layer, id) {
   const lw = layer.right - layer.left, lh = layer.bottom - layer.top;
-  if (lw <= 0 || lh <= 0 || !layer.canvas) continue;
-
-  // downscale the silhouette to output resolution
+  if (lw <= 0 || lh <= 0 || !layer.canvas) return null;
   const mw = Math.max(1, Math.round(lw * SCALE)), mh = Math.max(1, Math.round(lh * SCALE));
   const tmp = createCanvas(mw, mh);
   tmp.getContext('2d').drawImage(layer.canvas, 0, 0, mw, mh);
   const src = tmp.getContext('2d').getImageData(0, 0, mw, mh).data;
-
-  // binary inside-mask from the (faint, fillOpacity-0) silhouette alpha
-  let binary = new Uint8Array(mw * mh);
-  let any = false;
+  let binary = new Uint8Array(mw * mh), any = false;
   for (let p = 0; p < mw * mh; p++) { if (src[p * 4 + 3] > 8) { binary[p] = 1; any = true; } }
-  // some shapes have an empty stored raster — rebuild from the vector path
   if (!any && layer.vectorMask?.paths?.length) {
     binary = rasterizeVectorMask(layer, mw, mh);
     console.log(`  ${layer.name}: empty raster → rasterized vector mask`);
   }
-
   const glow = layer.effects?.innerGlow;
-  const sizeDoc = glow?.size?.value ?? 135;
-  const sizePx = Math.max(4, sizeDoc * SCALE);
+  const sizePx = Math.max(4, (glow?.size?.value ?? 135) * SCALE);
   const alpha = innerGlowAlpha(binary, mw, mh, sizePx);
-
-  // write white RGBA with the inner-glow alpha profile
   const outImg = new Uint8ClampedArray(mw * mh * 4);
-  for (let p = 0; p < mw * mh; p++) {
-    outImg[p * 4] = outImg[p * 4 + 1] = outImg[p * 4 + 2] = 255;
-    outImg[p * 4 + 3] = alpha[p];
-  }
-  const maskCanvas = createCanvas(mw, mh);
-  maskCanvas.getContext('2d').putImageData(new ImageData(outImg, mw, mh), 0, 0);
-
-  const id = `T${info.num}${info.sub}`;
-  writeFileSync(join(MASKS, `${id}.png`), maskCanvas.toBuffer('image/png'));
-
-  const entry = territories.get(info.num) || {
-    id: info.num,
-    label: `Territory ${info.num}`,
-    opacity: glow?.enabled ? +(glow.opacity ?? 0.55).toFixed(3) : 0.55,
-    defaultHex: glow?.color ? hex(glow.color) : '#cccccc',
-    hiddenByDefault: true,
-    parts: [],
-  };
-  if (!hiddenSet.has(layer)) entry.hiddenByDefault = false;
-  entry.parts.push({ file: `masks/${id}.png`, x: Math.round(layer.left * SCALE), y: Math.round(layer.top * SCALE), w: mw, h: mh });
-  territories.set(info.num, entry);
+  for (let p = 0; p < mw * mh; p++) { outImg[p * 4] = outImg[p * 4 + 1] = outImg[p * 4 + 2] = 255; outImg[p * 4 + 3] = alpha[p]; }
+  const mc = createCanvas(mw, mh);
+  mc.getContext('2d').putImageData(new ImageData(outImg, mw, mh), 0, 0);
+  writeFileSync(join(MASKS, `${id}.png`), mc.toBuffer('image/png'));
+  return { file: `masks/${id}.png`, x: Math.round(layer.left * SCALE), y: Math.round(layer.top * SCALE), w: mw, h: mh };
 }
+
+const territories = new Map();
+function entryFor(num) {
+  let e = territories.get(num);
+  if (!e) {
+    e = { id: num, label: `Territory ${num}`, opacity: 0.55, defaultHex: '#cccccc',
+      hiddenByDefault: true, parts: [], vassalColor: '#4abf9d', vassalOpacity: 0.88, vassalParts: [] };
+    territories.set(num, e);
+  }
+  return e;
+}
+
+// faction colour layers (Colors group)
+for (const layer of colorsGroup.children) {
+  const info = parseName(layer.name); if (!info) continue;
+  const part = bakeMask(layer, `T${info.num}${info.sub}`); if (!part) continue;
+  const e = entryFor(info.num);
+  const glow = layer.effects?.innerGlow;
+  if (glow?.enabled) { e.opacity = +(glow.opacity ?? 0.55).toFixed(3); if (glow.color) e.defaultHex = hex(glow.color); }
+  if (!hiddenSet.has(layer)) e.hiddenByDefault = false;
+  e.parts.push(part);
+}
+
+// vassal marker layers (Vassalizations group) — the teal "is a vassal" overlay, hidden by default
+const vassalGroup = psd.children.find(c => c.name === 'Vassalizations');
+let vassalCount = 0;
+for (const layer of vassalGroup?.children || []) {
+  const info = parseName(layer.name); if (!info) continue;
+  const part = bakeMask(layer, `V${info.num}${info.sub}`); if (!part) continue;
+  const e = entryFor(info.num);
+  const glow = layer.effects?.innerGlow;
+  if (glow) { e.vassalOpacity = +(glow.opacity ?? 0.88).toFixed(3); if (glow.color) e.vassalColor = hex(glow.color); }
+  e.vassalParts.push(part); vassalCount++;
+}
+console.log(`Baked ${vassalCount} vassal masks.`);
 
 const manifest = {
   width: OUT_W, height: OUT_H,
