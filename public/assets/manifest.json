@@ -165,6 +165,17 @@
           "w": 416,
           "h": 366
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V1.png",
+          "x": 5186,
+          "y": 4417,
+          "w": 416,
+          "h": 366
+        }
       ]
     },
     {
@@ -176,6 +187,17 @@
       "parts": [
         {
           "file": "masks/T2.png",
+          "x": 4326,
+          "y": 4027,
+          "w": 1047,
+          "h": 661
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V2.png",
           "x": 4326,
           "y": 4027,
           "w": 1047,
@@ -197,6 +219,17 @@
           "w": 1177,
           "h": 608
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V3.png",
+          "x": 4034,
+          "y": 4476,
+          "w": 1177,
+          "h": 608
+        }
       ]
     },
     {
@@ -208,6 +241,17 @@
       "parts": [
         {
           "file": "masks/T4.png",
+          "x": 4037,
+          "y": 4038,
+          "w": 726,
+          "h": 450
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V4.png",
           "x": 4037,
           "y": 4038,
           "w": 726,
@@ -229,6 +273,17 @@
           "w": 514,
           "h": 563
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V5.png",
+          "x": 5144,
+          "y": 3385,
+          "w": 514,
+          "h": 563
+        }
       ]
     },
     {
@@ -240,6 +295,17 @@
       "parts": [
         {
           "file": "masks/T6.png",
+          "x": 4509,
+          "y": 3437,
+          "w": 697,
+          "h": 570
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V6.png",
           "x": 4509,
           "y": 3437,
           "w": 697,
@@ -261,6 +327,17 @@
           "w": 404,
           "h": 607
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V7.png",
+          "x": 4197,
+          "y": 3379,
+          "w": 404,
+          "h": 607
+        }
       ]
     },
     {
@@ -272,6 +349,17 @@
       "parts": [
         {
           "file": "masks/T8.png",
+          "x": 3644,
+          "y": 3227,
+          "w": 689,
+          "h": 804
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V8.png",
           "x": 3644,
           "y": 3227,
           "w": 689,
@@ -293,6 +381,17 @@
           "w": 509,
           "h": 609
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V9.png",
+          "x": 3471,
+          "y": 3597,
+          "w": 509,
+          "h": 609
+        }
       ]
     },
     {
@@ -304,6 +403,17 @@
       "parts": [
         {
           "file": "masks/T10.png",
+          "x": 2813,
+          "y": 3685,
+          "w": 730,
+          "h": 348
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V10.png",
           "x": 2813,
           "y": 3685,
           "w": 730,
@@ -325,6 +435,17 @@
           "w": 698,
           "h": 762
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V11.png",
+          "x": 2932,
+          "y": 3949,
+          "w": 698,
+          "h": 762
+        }
       ]
     },
     {
@@ -336,6 +457,17 @@
       "parts": [
         {
           "file": "masks/T12.png",
+          "x": 3537,
+          "y": 4136,
+          "w": 626,
+          "h": 424
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V12.png",
           "x": 3537,
           "y": 4136,
           "w": 626,
@@ -357,6 +489,17 @@
           "w": 657,
           "h": 625
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V13.png",
+          "x": 3716,
+          "y": 4488,
+          "w": 657,
+          "h": 625
+        }
       ]
     },
     {
@@ -368,6 +511,17 @@
       "parts": [
         {
           "file": "masks/T14.png",
+          "x": 3197,
+          "y": 4398,
+          "w": 639,
+          "h": 908
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V14.png",
           "x": 3197,
           "y": 4398,
           "w": 639,
@@ -389,6 +543,17 @@
           "w": 719,
           "h": 400
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V15.png",
+          "x": 2620,
+          "y": 4991,
+          "w": 719,
+          "h": 400
+        }
       ]
     },
     {
@@ -400,6 +565,17 @@
       "parts": [
         {
           "file": "masks/T16.png",
+          "x": 1734,
+          "y": 4975,
+          "w": 896,
+          "h": 416
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V16.png",
           "x": 1734,
           "y": 4975,
           "w": 896,
@@ -435,6 +611,17 @@
           "w": 54,
           "h": 54
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V17.png",
+          "x": 2282,
+          "y": 4436,
+          "w": 889,
+          "h": 629
+        }
       ]
     },
     {
@@ -446,6 +633,17 @@
       "parts": [
         {
           "file": "masks/T18.png",
+          "x": 2310,
+          "y": 3996,
+          "w": 957,
+          "h": 720
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V18.png",
           "x": 2310,
           "y": 3996,
           "w": 957,
@@ -467,6 +665,17 @@
           "w": 706,
           "h": 717
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V19.png",
+          "x": 1725,
+          "y": 4284,
+          "w": 706,
+          "h": 717
+        }
       ]
     },
     {
@@ -478,6 +687,17 @@
       "parts": [
         {
           "file": "masks/T20.png",
+          "x": 1337,
+          "y": 4577,
+          "w": 875,
+          "h": 536
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V20.png",
           "x": 1337,
           "y": 4577,
           "w": 875,
@@ -499,6 +719,17 @@
           "w": 937,
           "h": 883
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V21.png",
+          "x": 1042,
+          "y": 3841,
+          "w": 937,
+          "h": 883
+        }
       ]
     },
     {
@@ -510,6 +741,17 @@
       "parts": [
         {
           "file": "masks/T22.png",
+          "x": 439,
+          "y": 3725,
+          "w": 867,
+          "h": 689
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V22.png",
           "x": 439,
           "y": 3725,
           "w": 867,
@@ -531,6 +773,17 @@
           "w": 585,
           "h": 464
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V23.png",
+          "x": 1848,
+          "y": 3879,
+          "w": 585,
+          "h": 464
+        }
       ]
     },
     {
@@ -542,6 +795,17 @@
       "parts": [
         {
           "file": "masks/T24.png",
+          "x": 2113,
+          "y": 3494,
+          "w": 810,
+          "h": 703
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V24.png",
           "x": 2113,
           "y": 3494,
           "w": 810,
@@ -563,6 +827,17 @@
           "w": 1004,
           "h": 771
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V25.png",
+          "x": 1357,
+          "y": 3184,
+          "w": 1004,
+          "h": 771
+        }
       ]
     },
     {
@@ -574,6 +849,17 @@
       "parts": [
         {
           "file": "masks/T26.png",
+          "x": 808,
+          "y": 3078,
+          "w": 676,
+          "h": 802
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V26.png",
           "x": 808,
           "y": 3078,
           "w": 676,
@@ -595,6 +881,17 @@
           "w": 406,
           "h": 512
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V27.png",
+          "x": 436,
+          "y": 3335,
+          "w": 406,
+          "h": 512
+        }
       ]
     },
     {
@@ -606,6 +903,17 @@
       "parts": [
         {
           "file": "masks/T28.png",
+          "x": 349,
+          "y": 2634,
+          "w": 659,
+          "h": 777
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V28.png",
           "x": 349,
           "y": 2634,
           "w": 659,
@@ -627,6 +935,17 @@
           "w": 793,
           "h": 594
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V29.png",
+          "x": 2442,
+          "y": 3173,
+          "w": 793,
+          "h": 594
+        }
       ]
     },
     {
@@ -642,6 +961,17 @@
           "y": 2866,
           "w": 677,
           "h": 650
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V30.png",
+          "x": 2293,
+          "y": 2869,
+          "w": 550,
+          "h": 647
         }
       ]
     },
@@ -659,6 +989,17 @@
           "w": 819,
           "h": 626
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V31.png",
+          "x": 1578,
+          "y": 2859,
+          "w": 819,
+          "h": 628
+        }
       ]
     },
     {
@@ -670,6 +1011,17 @@
       "parts": [
         {
           "file": "masks/T32.png",
+          "x": 1642,
+          "y": 2632,
+          "w": 751,
+          "h": 541
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V32.png",
           "x": 1642,
           "y": 2632,
           "w": 751,
@@ -690,20 +1042,17 @@
           "y": 2895,
           "w": 601,
           "h": 333
-        },
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
         {
-          "file": "masks/T33B.png",
-          "x": 1042,
-          "y": 2938,
-          "w": 563,
-          "h": 287
-        },
-        {
-          "file": "masks/T33A.png",
-          "x": 1026,
-          "y": 2896,
-          "w": 567,
-          "h": 331
+          "file": "masks/V33.png",
+          "x": 1005,
+          "y": 2895,
+          "w": 601,
+          "h": 333
         }
       ]
     },
@@ -716,6 +1065,17 @@
       "parts": [
         {
           "file": "masks/T34.png",
+          "x": 1230,
+          "y": 2571,
+          "w": 620,
+          "h": 425
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V34.png",
           "x": 1230,
           "y": 2571,
           "w": 620,
@@ -737,6 +1097,17 @@
           "w": 495,
           "h": 530
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V35.png",
+          "x": 1070,
+          "y": 2397,
+          "w": 495,
+          "h": 530
+        }
       ]
     },
     {
@@ -748,6 +1119,17 @@
       "parts": [
         {
           "file": "masks/T36.png",
+          "x": 704,
+          "y": 2295,
+          "w": 704,
+          "h": 787
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V36.png",
           "x": 704,
           "y": 2295,
           "w": 704,
@@ -769,6 +1151,17 @@
           "w": 663,
           "h": 482
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V37.png",
+          "x": 392,
+          "y": 2265,
+          "w": 663,
+          "h": 482
+        }
       ]
     },
     {
@@ -780,6 +1173,17 @@
       "parts": [
         {
           "file": "masks/T38.png",
+          "x": 393,
+          "y": 1968,
+          "w": 650,
+          "h": 496
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V38.png",
           "x": 393,
           "y": 1968,
           "w": 650,
@@ -801,6 +1205,17 @@
           "w": 633,
           "h": 531
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V39.png",
+          "x": 571,
+          "y": 1560,
+          "w": 633,
+          "h": 531
+        }
       ]
     },
     {
@@ -812,6 +1227,17 @@
       "parts": [
         {
           "file": "masks/T40.png",
+          "x": 926,
+          "y": 1698,
+          "w": 589,
+          "h": 477
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V40.png",
           "x": 926,
           "y": 1698,
           "w": 589,
@@ -833,6 +1259,17 @@
           "w": 893,
           "h": 587
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V41.png",
+          "x": 1198,
+          "y": 1422,
+          "w": 893,
+          "h": 587
+        }
       ]
     },
     {
@@ -844,6 +1281,17 @@
       "parts": [
         {
           "file": "masks/T42.png",
+          "x": 995,
+          "y": 1795,
+          "w": 1241,
+          "h": 596
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V42.png",
           "x": 995,
           "y": 1795,
           "w": 1241,
@@ -865,6 +1313,17 @@
           "w": 622,
           "h": 320
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V43.png",
+          "x": 1587,
+          "y": 1969,
+          "w": 622,
+          "h": 320
+        }
       ]
     },
     {
@@ -876,6 +1335,17 @@
       "parts": [
         {
           "file": "masks/T44.png",
+          "x": 1236,
+          "y": 2083,
+          "w": 562,
+          "h": 392
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V44.png",
           "x": 1236,
           "y": 2083,
           "w": 562,
@@ -897,6 +1367,17 @@
           "w": 636,
           "h": 437
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V45.png",
+          "x": 1489,
+          "y": 2218,
+          "w": 636,
+          "h": 437
+        }
       ]
     },
     {
@@ -908,6 +1389,17 @@
       "parts": [
         {
           "file": "masks/T46.png",
+          "x": 1899,
+          "y": 1945,
+          "w": 905,
+          "h": 706
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V46.png",
           "x": 1899,
           "y": 1945,
           "w": 905,
@@ -929,6 +1421,17 @@
           "w": 566,
           "h": 452
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V47.png",
+          "x": 2375,
+          "y": 2579,
+          "w": 562,
+          "h": 452
+        }
       ]
     },
     {
@@ -940,6 +1443,17 @@
       "parts": [
         {
           "file": "masks/T48.png",
+          "x": 2519,
+          "y": 1780,
+          "w": 530,
+          "h": 1025
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V48.png",
           "x": 2519,
           "y": 1780,
           "w": 530,
@@ -961,6 +1475,17 @@
           "w": 914,
           "h": 710
         }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V49A.png",
+          "x": 2023,
+          "y": 1530,
+          "w": 914,
+          "h": 710
+        }
       ]
     },
     {
@@ -972,6 +1497,17 @@
       "parts": [
         {
           "file": "masks/T50.png",
+          "x": 2010,
+          "y": 1208,
+          "w": 830,
+          "h": 541
+        }
+      ],
+      "vassalColor": "#4abf9d",
+      "vassalOpacity": 0.878,
+      "vassalParts": [
+        {
+          "file": "masks/V50.png",
           "x": 2010,
           "y": 1208,
           "w": 830,

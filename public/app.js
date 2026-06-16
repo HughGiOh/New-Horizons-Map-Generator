@@ -37,7 +37,7 @@ async function init() {
   } catch (e) { console.warn('font load failed', e); }
 
   [baseImg, linesImg] = await Promise.all([load('assets/' + manifest.base), load('assets/' + manifest.overlayLines)]);
-  await Promise.all(manifest.territories.flatMap(t => t.parts.map(async p => { masks[p.file] = await load('assets/' + p.file); })));
+  await Promise.all(manifest.territories.flatMap(t => [...t.parts, ...(t.vassalParts || [])].map(async p => { masks[p.file] = await load('assets/' + p.file); })));
 
   serverMode = await loadFromServer();
   if (!serverMode) {
@@ -101,8 +101,11 @@ function wireTabs() {
 }
 
 // ---------- territory colouring ----------
-function colorOf(t) { if (t.id in state) return state[t.id].hex; return t.hiddenByDefault ? null : t.defaultHex; }
-function isChanged(t) { return t.id in state; }
+// state[num] = { hex?: '#rrggbb'|null, vassal?: true }
+function colorOf(t) { const s = state[t.id]; if (s && s.hex !== undefined) return s.hex; return t.hiddenByDefault ? null : t.defaultHex; }
+function isVassal(t) { const s = state[t.id]; return !!(s && s.vassal); }
+function vassalColorOf(t) { const s = state[t.id]; return (s && s.vassalHex) || t.vassalColor || '#4abf9d'; }
+function isChanged(t) { const s = state[t.id]; return !!s && (s.hex !== undefined || s.vassal); }
 
 function tintedPart(p, hex) {
   const key = p.file + '|' + hex;
@@ -119,6 +122,12 @@ function paintTerritories(cx) {
     cx.globalAlpha = t.opacity;
     for (const p of t.parts) cx.drawImage(tintedPart(p, hex), p.x, p.y);
   }
+  // vassal markers (teal rim) on top, for territories flagged as vassals
+  for (const t of manifest.territories) {
+    if (!isVassal(t)) continue;
+    cx.globalAlpha = t.vassalOpacity || 0.88;
+    for (const p of (t.vassalParts || [])) cx.drawImage(tintedPart(p, vassalColorOf(t)), p.x, p.y);
+  }
   cx.globalAlpha = 1;
 }
 function render() {
@@ -127,11 +136,27 @@ function render() {
   paintTerritories(ctx);
   ctx.drawImage(linesImg, 0, 0);
 }
+// coalesce rapid recolours (e.g. dragging the colour picker) into one repaint per frame.
+// rAF keeps it smooth when visible; the timeout fallback guarantees a repaint if rAF is throttled.
+let renderQueued = false;
+function scheduleRender() {
+  if (renderQueued) return;
+  renderQueued = true;
+  const run = () => { if (!renderQueued) return; renderQueued = false; render(); };
+  requestAnimationFrame(run);
+  setTimeout(run, 60);
+}
 
 const persist = () => localStorage.setItem(LS_KEY, JSON.stringify(state));
 const persistLabels = () => localStorage.setItem(LB_KEY, JSON.stringify(labels));
-function setColor(num, hex) { state[num] = { hex }; persist(); render(); syncRow(num); }
-function resetColor(num) { delete state[num]; persist(); render(); syncRow(num); }
+function setColor(num, hex) { const s = state[num] || (state[num] = {}); s.hex = hex; persist(); scheduleRender(); syncRow(num); }
+function resetColor(num) { const s = state[num]; if (s) { delete s.hex; if (!s.vassal) delete state[num]; } persist(); render(); syncRow(num); }
+function setVassal(num, on) {
+  const s = state[num] || (state[num] = {});
+  if (on) s.vassal = true; else { delete s.vassal; if (s.hex === undefined) delete state[num]; }
+  persist(); render(); syncRow(num);
+}
+function setVassalColor(num, hex) { const s = state[num] || (state[num] = {}); s.vassal = true; s.vassalHex = hex; persist(); scheduleRender(); syncRow(num); }
 
 // ---------- text labels (rendered on #labelCanvas, 1:1 with export) ----------
 const scale = () => labelCanvas.clientWidth / manifest.width;     // display px per map px
@@ -381,6 +406,7 @@ function buildList() {
     const row = document.createElement('div');
     row.className = 'row'; row.dataset.id = t.id; row.dataset.label = t.label.toLowerCase();
     row.innerHTML = `<span class="num">${t.id}</span><span class="label">${t.label}</span>
+      <button class="vas" type="button" title="Mark as vassal">🛡</button>
       <button class="sw" type="button" title="Pick colour"></button>
       <input class="hxcolor" type="color"><input class="hx" maxlength="7" title="Hex colour">
       <button class="clr" title="Reset to default">⟲</button>`;
@@ -388,10 +414,32 @@ function buildList() {
     sw.onclick = () => ci.click();
     ci.oninput = () => setColor(t.id, ci.value);
     hx.onchange = () => { const v = hx.value.trim().toLowerCase(); if (v === '' || v === 'none') return setColor(t.id, null); if (!/^#[0-9a-f]{6}$/i.test(v)) return toast('Bad hex'); setColor(t.id, v); };
+    row.querySelector('.vas').onclick = () => setVassal(t.id, !isVassal(t));
     row.querySelector('.clr').onclick = () => resetColor(t.id);
-    list.appendChild(row); syncRow(t.id, row);
+    list.appendChild(row);
+
+    // vassal outline drop-down row (shown only when the territory is a vassal)
+    const sub = document.createElement('div');
+    sub.className = 'subrow'; sub.dataset.id = t.id;
+    sub.innerHTML = `<span class="sublabel">Vassal outline</span>
+      <button class="vsw" type="button" title="Pick vassal colour"></button><input class="vcolor" type="color">
+      <input class="vhx" maxlength="7" title="Vassal hex">`;
+    const vsw = sub.querySelector('.vsw'); const vc = sub.querySelector('.vcolor'); const vhx = sub.querySelector('.vhx');
+    vsw.onclick = () => vc.click();
+    vc.oninput = () => setVassalColor(t.id, vc.value);
+    vhx.onchange = () => { const v = vhx.value.trim().toLowerCase(); if (!/^#[0-9a-f]{6}$/i.test(v)) return toast('Bad hex'); setVassalColor(t.id, v); };
+    list.appendChild(sub);
+    syncRow(t.id, row);
   }
-  $('#filter').oninput = e => { const q = e.target.value.toLowerCase(); document.querySelectorAll('.row').forEach(r => r.style.display = (r.dataset.label.includes(q) || r.dataset.id.includes(q)) ? '' : 'none'); };
+  $('#filter').oninput = e => {
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll('.row').forEach(r => {
+      const match = r.dataset.label.includes(q) || r.dataset.id.includes(q);
+      r.style.display = match ? '' : 'none';
+      const sub = document.querySelector(`.subrow[data-id="${r.dataset.id}"]`);
+      if (sub) { const t = manifest.territories.find(x => x.id == r.dataset.id); sub.style.display = (match && isVassal(t)) ? 'flex' : 'none'; }
+    });
+  };
 }
 function syncRow(num, row) {
   row = row || document.querySelector(`.row[data-id="${num}"]`); if (!row) return;
@@ -399,6 +447,16 @@ function syncRow(num, row) {
   const sw = row.querySelector('.sw'); const colorInput = row.querySelector('.hxcolor'); const hx = row.querySelector('.hx');
   if (hex) { sw.style.background = hex; colorInput.value = hex; hx.value = hex; hx.placeholder = ''; }
   else { sw.style.background = 'transparent'; hx.value = ''; hx.placeholder = 'none'; }
+  const v = isVassal(t);
+  row.querySelector('.vas').classList.toggle('on', v);
+  const sub = document.querySelector(`.subrow[data-id="${num}"]`);
+  if (sub) {
+    sub.style.display = v ? 'flex' : 'none';
+    const vcol = vassalColorOf(t);
+    sub.querySelector('.vsw').style.background = vcol;
+    sub.querySelector('.vcolor').value = vcol;
+    const vhx = sub.querySelector('.vhx'); if (document.activeElement !== vhx) vhx.value = vcol;
+  }
   row.classList.toggle('changed', isChanged(t));
   if ($('#quickSelect').value == num) { $('#quickColor').value = hex || '#cc5500'; $('#quickHex').value = hex || ''; }
 }
