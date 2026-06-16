@@ -8,7 +8,7 @@ pages_build_output_dir = "public"
 #   npx wrangler kv namespace create MAP
 [[kv_namespaces]]
 binding = "MAP"
-id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+id = "eb04238518994bcaa18bc63a9b4dcf40"
 
 # Initial passwords are read ONCE from these on first run, then stored in KV
 # (the admin can change them in-app afterwards). These are plain vars so the map
